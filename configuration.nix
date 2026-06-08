@@ -211,7 +211,7 @@ stylix.autoEnable = false;
      # The following is used to play vidoes
      pkgs.mpv
      pkgs.ghostty
-     pkgs.git
+#     pkgs.git
      pkgs.yt-dlp
      pkgs.xclip
      pkgs.freecad
