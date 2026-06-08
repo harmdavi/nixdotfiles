@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+FILE="links.txt"
+
+while IFS= read -r url; do
+    # Skip empty lines
+    [ -z "$url" ] && continue
+
+    echo "Downloading: $url"
+    yt-dlp "$url"
+done < "$FILE"

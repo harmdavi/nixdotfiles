@@ -1,0 +1,24 @@
+#!/bin/sh
+
+hyprctl dispatch workspace 1
+
+#for i in {1..5};do
+#hyprctl dispatch killactive
+#done
+
+exec firefox --no-remote -P Messages "https://messages.google.com/web/conversations"&
+
+sleep 3 
+
+#for i in {1..5};do
+#hyprctl dispatch killactive
+#done
+
+hyprctl dispatch workspace 2
+
+exec firefox --no-remote -P canvas "https://canvas.uidaho.edu/"&
+keepassxc &
+
+#exit
+
+

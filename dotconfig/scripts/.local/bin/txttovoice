@@ -1,0 +1,43 @@
+
+#!/usr/bin/env bash
+
+# -------- CONFIG --------
+VOICE="/usr/share/piper-voices/en/en_US/bryce/medium/en_US-bryce-medium.onnx"
+SPEED="1.0"          # 1.0 normal | 0.8 faster | 1.2 slower
+# ------------------------
+
+set -e
+
+if [ -z "$1" ]; then
+    echo "Usage: $0 file.txt"
+    exit 1
+fi
+
+INPUT="$1"
+
+if [ ! -f "$INPUT" ]; then
+    echo "File not found: $INPUT"
+    exit 1
+fi
+
+BASENAME=$(basename "$INPUT" .txt)
+WAVFILE="${BASENAME}.wav"
+MP3FILE="${BASENAME}.mp3"
+
+echo "Generating WAV from text..."
+piper-tts \
+    --model "$VOICE" \
+    --length_scale "$SPEED" \
+    --output_file "$WAVFILE" < "$INPUT"
+
+echo "Converting WAV to MP3..."
+if ffmpeg -y -i "$WAVFILE" -vn -ar 44100 -ac 2 -b:a 192k "$MP3FILE"; then
+    rm "$WAVFILE"
+    echo "WAV removed."
+else
+    echo "MP3 conversion failed. Keeping WAV."
+    exit 1
+fi
+
+echo "Done!"
+echo "Created: $MP3FILE"

@@ -1,0 +1,3 @@
+#!/bin/sh
+
+firefox "https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/in_text_citations_the_basics.html"

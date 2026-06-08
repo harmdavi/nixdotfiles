@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+# -------- CONFIG --------
+VOICE="/usr/share/piper-voices/en/en_US/bryce/medium/en_US-bryce-medium.onnx"
+SPEED="1.0"   # 1.0 = normal, 0.8 faster, 1.2 slower
+# ------------------------
+
+if [ -z "$1" ]; then
+    echo "Usage: $0 file.pdf"
+    exit 1
+fi
+
+INPUT="$1"
+BASENAME=$(basename "$INPUT" .pdf)
+TEXTFILE="${BASENAME}.txt"
+WAVFILE="${BASENAME}.wav"
+MP3FILE="${BASENAME}.mp3"
+
+echo "Extracting text from PDF..."
+pdftotext "$INPUT" "$TEXTFILE"
+
+if [ ! -s "$TEXTFILE" ]; then
+    echo "Text extraction failed or PDF may be scanned. Trying OCR..."
+    tesseract "$INPUT" "$BASENAME"
+fi
+
+echo "Generating speech (WAV)..."
+piper-tts \
+    --model "$VOICE" \
+    --length_scale "$SPEED" \
+    --output_file "$WAVFILE" < "$TEXTFILE"
+
+echo "Converting WAV to MP3..."
+ffmpeg -y -i "$WAVFILE" -vn -ar 44100 -ac 2 -b:a 192k "$MP3FILE"
+
+echo "Done!"
+echo "Created: $MP3FILE"

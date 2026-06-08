@@ -1,0 +1,7 @@
+#!/bin/sh
+
+hyprctl dispatch workspace 3
+
+
+exec firefox --no-remote -P lib "https://www.lib.uidaho.edu"&
+
