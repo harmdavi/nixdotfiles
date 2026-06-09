@@ -1,0 +1,73 @@
+***Notes for David***
+
+*** Tutorial Link***
+ To setup my nixos, I used the following tutorial video on Youtube.
+
+https://www.youtube.com/watch?v=6WLaNIlDW0M&list=PL_WcXIXdDWWpuypAEKzZF2b5PijTluxRG
+
+
+
+***UPDATING SYSTEM***
+
+When you want to update your programs first run:
+
+ nix flake update
+
+This updates all of the links to the most recent
+versions of the software you have linked. once you 
+are ready to actually update the system run:
+
+ sudo nixos-rebuild switch --flake .
+
+ Note: you need to be in the dotfiles directory when
+ you are running the previous command.
+
+To update your home-manager configuration run the following command: 
+
+ home-manager switch --flake .
+
+
+
+***INSTALLING HOME MANAGER***
+
+ Go to the following link 
+ https://nix-community.github.io/home-manager/index.xhtml#ch-installation
+
+Find the recent stable version and install that. The command should look similar to:
+
+nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.11.tar.gz home-manager
+
+nix-channel --update
+
+
+***GIT STUFF***
+
+to initialize a git repo simply type 
+
+git init 
+
+Create a system SSH key for github using:
+
+ssh-keygen
+
+Note: If you set your SSH key to have a passphrase, you can run into problems pushing to github if you dont type the password in correctly.
+
+On Github make the following steps: 
+1. Login to your github account 
+2. Click on your profile picture 
+3. go to "Settings"
+4. Select "SSH and GPG keys"
+5. Click the "New SSH key" button
+6. Name the SSH key what computer your are authorizing. (for example small laptop or home computer)
+7. Go to ~/.ssh and find the file that has the ".pub" file extension. 
+8. Copy and paste this into your github window. 
+
+Note: This now lets github trust your computer. When you make pull or push requests, you wont need to paste in a encrytpion key ever time!
+
+Go and create the repository on github you would like to be able to push to.
+
+Then you can go back to your folder and add the remote github repository. 
+
+git remote add [name of push service] [SSH URL key]
+
+

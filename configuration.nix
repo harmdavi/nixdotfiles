@@ -1,39 +1,3 @@
-#***Notes for David***
-
-#*** Tutorial Link***
-# To setup my nixos, I used the following tutorial video on Youtube.
-
-#https://www.youtube.com/watch?v=6WLaNIlDW0M&list=PL_WcXIXdDWWpuypAEKzZF2b5PijTluxRG
-
-#***UPDATING SYSTEM***
-
-#When you want to update your programs first run:
-
-# nix flake update
-
-#This updates all of the links to the most recent
-#versions of the software you have linked. once you 
-#are ready to actually update the system run:
-
-# sudo nixos-rebuild switch --flake .
-
-# Note: you need to be in the dotfiles directory when
-# you are running the previous command.
-
-#To update your home-manager configuration run the following command: 
-
-# home-manager switch --flake .
-
-#***INSTALLING HOME MANAGER***
-
-# Go to the following link 
-# https://nix-community.github.io/home-manager/index.xhtml#ch-installation
-
-#Find the recent stable version and install that. The command should look similar to:
-
-#nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.11.tar.gz home-manager
-
-#nix-channel --update
 
 
 
