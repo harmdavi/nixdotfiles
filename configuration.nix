@@ -1,7 +1,3 @@
-
-
-
-
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
@@ -14,19 +10,67 @@
       ./hardware-configuration.nix
     ];
 
+  environment.systemPackages = with pkgs; [
+(import ./appbuild/nvim.nix { inherit pkgs;})
+
+     pkgs.vim-full
+     pkgs.tree-sitter
+     pkgs.lua-language-server
+     pkgs.textidote
+     pkgs.texlab
+     pkgs.stylua
+     pkgs.ripgrep 
+     pkgs.python3
+     pkgs.gcc
+     pkgs.gnumake
+     pkgs.luarocks
+     pkgs.xdotool
+     pkgs.biber
+     pkgs.kicad
+     pkgs.texliveFull
 
 
+     pkgs.yazi
+     # The following is used to play vidoes
+     pkgs.mpv
+     pkgs.ghostty
+     pkgs.git
+     pkgs.yt-dlp
+     pkgs.xclip
+     pkgs.freecad
+     pkgs.kooha
+     pkgs.gnupg
 
+     pkgs.hyprpaper
+     pkgs.hyprlang
+     pkgs.hyprlock
+     pkgs.hypridle
+     pkgs.rofi
+     pkgs.grim 
+     pkgs.slurp 
+     pkgs.waybar
+     pkgs.kdePackages.dolphin
+     pkgs.hyprlauncher
+     pkgs.keepassxc
+     pkgs.localsend
+     pkgs.inkscape
+     pkgs.hyprshot
+     pkgs.wl-clipboard
+     pkgs.zathura
 
+  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+  #  wget
+  ];
 
+# The following will delete any generations that are older than 30 days.
   nix.gc = {
     automatic = true;
     dates = "weekly";
     options = "--delete-older-than 30d";
   };
 
+#The following only allows for 7 generations to be seen from the boot menu
   boot.loader.systemd-boot.configurationLimit = 7;
-
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -68,7 +112,6 @@
   services.xserver.enable = true;
 
   #login Manager 
-
   services.displayManager.sddm = {
   enable = true;
   wayland.enable = true;
@@ -151,56 +194,6 @@ stylix.autoEnable = false;
   ];
 
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-(import ./appbuild/nvim.nix { inherit pkgs;})
-
-     pkgs.vim-full
-     pkgs.tree-sitter
-     pkgs.lua-language-server
-     pkgs.textidote
-     pkgs.texlab
-     pkgs.stylua
-     pkgs.ripgrep 
-     pkgs.python3
-     pkgs.gcc
-     pkgs.gnumake
-     pkgs.luarocks
-     pkgs.xdotool
-     pkgs.biber
-     pkgs.kicad
-     pkgs.texliveFull
-
-
-     pkgs.yazi
-     # The following is used to play vidoes
-     pkgs.mpv
-     pkgs.ghostty
-#     pkgs.git
-     pkgs.yt-dlp
-     pkgs.xclip
-     pkgs.freecad
-     pkgs.kooha
-
-     pkgs.hyprpaper
-     pkgs.hyprlang
-     pkgs.hyprlock
-     pkgs.hypridle
-     pkgs.rofi
-     pkgs.grim 
-     pkgs.slurp 
-     pkgs.waybar
-     pkgs.kdePackages.dolphin
-     pkgs.hyprlauncher
-     pkgs.keepassxc
-     pkgs.localsend
-     pkgs.inkscape
-     pkgs.hyprshot
-     pkgs.wl-clipboard
-     pkgs.zathura
-
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
-  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
