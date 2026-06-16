@@ -81,6 +81,19 @@ source = ./dotconfig/nvim;
 recursive = true;
 };
 
+  wayland.windowManager.hyprland.settings = {
+    input = {
+      kb_layout = "us";
+      kb_options = "compose:ralt";
+    };
+  };
+
+#XCompose configuration. For Emojis and Symbols
+#home.file.".XCompose" = {
+#source = ./dotconfig/xcompose/.XCompose;
+#recursive = true;
+#};
+
 #Ghostty Config
 home.file.".config/ghostty" = {
 source = ./dotconfig/ghostty;

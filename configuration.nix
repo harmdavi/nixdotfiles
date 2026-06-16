@@ -10,58 +10,6 @@
       ./hardware-configuration.nix
     ];
 
-  environment.systemPackages = with pkgs; [
-(import ./appbuild/nvim.nix { inherit pkgs;})
-
-     pkgs.vim-full
-     pkgs.tree-sitter
-     pkgs.lua-language-server
-     pkgs.textidote
-     pkgs.texlab
-     pkgs.stylua
-     pkgs.ripgrep 
-     pkgs.python3
-     pkgs.gcc
-     pkgs.gnumake
-     pkgs.luarocks
-     pkgs.xdotool
-     pkgs.biber
-     pkgs.kicad
-     pkgs.texliveFull
-
-
-     pkgs.yazi
-     # The following is used to play vidoes
-     pkgs.mpv
-     pkgs.ghostty
-     pkgs.git
-     pkgs.yt-dlp
-     pkgs.xclip
-     pkgs.freecad
-     pkgs.kooha
-     pkgs.gnupg
-
-     pkgs.hyprpaper
-     pkgs.hyprlang
-     pkgs.hyprlock
-     pkgs.hypridle
-     pkgs.rofi
-     pkgs.grim 
-     pkgs.slurp 
-     pkgs.waybar
-     pkgs.kdePackages.dolphin
-     pkgs.hyprlauncher
-     pkgs.keepassxc
-     pkgs.localsend
-     pkgs.inkscape
-     pkgs.hyprshot
-     pkgs.wl-clipboard
-     pkgs.zathura
-
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
-  ];
-
 # The following will delete any generations that are older than 30 days.
   nix.gc = {
     automatic = true;
@@ -178,11 +126,11 @@ withUWSM = true;
   # List packages installed in system profile. To search, run:
 
 
-stylix.enable = true;
+#stylix.enable = true;
 #  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
-stylix.polarity = "dark";
-stylix.image = ./now.png;
-stylix.autoEnable = false;
+#stylix.polarity = "dark";
+#stylix.image = ./now.png;
+#stylix.autoEnable = false;
 
 
   fonts.packages = with pkgs; [
@@ -194,6 +142,86 @@ stylix.autoEnable = false;
   ];
 
   # $ nix search wget
+
+  environment.systemPackages = with pkgs; [
+
+#*** BEGIN NVIM INSTALLATION ***
+(import ./appbuild/nvim.nix { inherit pkgs;})
+
+#** LSP **
+     pkgs.tree-sitter
+     pkgs.lua-language-server
+     pkgs.stylua
+     pkgs.harper
+
+#** LATEX **
+     pkgs.texliveFull
+     pkgs.biber
+     pkgs.texlab
+     pkgs.textidote
+     pkgs.ltex-ls 
+     pkgs.texlab
+     pkgs.harper
+
+     pkgs.ripgrep 
+     pkgs.luarocks
+
+#** PDF Viewer ** 
+     pkgs.zathura
+
+#*** END NVIM INSTALLATION ***
+
+
+#*** BEGIN PROGRAMS *** 
+     pkgs.python3
+     pkgs.w3m
+     pkgs.gcc
+     pkgs.gnumake
+     pkgs.yt-dlp
+     pkgs.freecad
+     pkgs.keepassxc
+     pkgs.localsend
+     pkgs.inkscape
+#used for GPG encryption
+     pkgs.gnupg
+#     pkgs.kicad
+#*** END PROGRAMS *** 
+
+#*** BEGIN HYPERLAND TOOLS ***
+     pkgs.ghostty
+     pkgs.mpv
+     pkgs.yazi
+     pkgs.git
+     pkgs.hyprpaper
+     pkgs.hyprlauncher
+     pkgs.hyprshot
+     pkgs.hyprlang
+     pkgs.hyprlock
+     pkgs.wl-clipboard
+     pkgs.waybar
+     pkgs.slurp 
+     pkgs.kdePackages.dolphin
+     # Note that hypridle is how you can make your screen lock after a certian amount of time
+     pkgs.hypridle
+
+#*** END HYPERLAND TOOLS ***
+
+
+#*** BEGIN CINNAMON TOOLS ***
+     pkgs.xdotool
+     pkgs.xclip
+#     pkgs.rofi
+#*** END CINNAMON TOOLS ***
+
+#*** BEGIN AUX TOOLS ***
+#     pkgs.kooha
+#     pkgs.grim 
+
+#Note. The following is here in case I break my neovim and it breaks and need to use vim
+     #pkgs.vim-full
+#*** END AUX TOOLS ***
+
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

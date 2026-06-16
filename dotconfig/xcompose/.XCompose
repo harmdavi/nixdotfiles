@@ -1,0 +1,6 @@
+    include "%L"
+
+    <Multi_key> <a> <e> : "æ"
+    <Multi_key> <o> <e> : "œ"
+    <Multi_key> <s> <s> : "ß"
+    <Multi_key> <minus> <greater> : "→"

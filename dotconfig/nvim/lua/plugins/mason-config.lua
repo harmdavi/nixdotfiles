@@ -14,8 +14,8 @@ return{
     "mason-org/mason-lspconfig.nvim",
     opts = {
 ensure_installed = {
---	"lua_ls",
---	"texlab",
+	"lua_ls",
+	"texlab",
 }
     },
     dependencies = {

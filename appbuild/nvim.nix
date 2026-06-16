@@ -8,9 +8,8 @@ pkgs.neovim-unwrapped.overrideAttrs (old: {
     repo = "neovim";
 
     rev = "release-0.12";
-
     # temporary hash; Nix will tell you the real one
-    hash = "sha256-lr1xYmGOjF3uZ6In26RTAFfITxHYHVhF5GQS68KhyrE=";
+    hash = "sha256-ASYBTHAxSEb1va4ljeWVW6RaVNPKNhxk0Y6Vu7XkuFU=";
   };
   doInstallCheck = false;
 })
