@@ -20,4 +20,13 @@ vim.lsp.config("lua_ls", {
   },
 })
 
---vim.lsp.config("texlab")
+vim.lsp.config("harper_ls", {
+  cmd = { "harper-ls" },
+  filetypes = {
+    "markdown",
+    "text",
+    "gitcommit",
+    "tex",
+    "plaintex",
+  },
+})

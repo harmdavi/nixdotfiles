@@ -1,25 +1,36 @@
-{stdenv, fetchFromGithub, make}
+{ pkgs }:
 
-x86_64-linux
+pkgs.rustPlatform.buildRustPackage rec {
+  pname = "tree-sitter-cli";
+  version = "0.26.8";
 
-stdenv.mkDerivation rec{
- pname = "an-app";
- version = "1.0.0";
+  src = pkgs.fetchFromGitHub {
+    owner = "tree-sitter";
+    repo = "tree-sitter";
+    rev = "v${version}";
+    hash = "sha256-fcFEfoALrbpBD6rWogxJ7FNVlvDQgswoX9ylRgko+8Q=";
+  };
 
- src = fetchFromGithub{
-  owner = "someone"; 
-  repo = pname;
-  rev = "v${version}";
-  sha256 = "00000000000000000000000000000000000000000000"
-};
+  cargoHash = "sha256-9FeWnWWPUWmMF15Psmul8GxGv2JceHWc2WZPmOr81gw=";
 
-buildInputs = [make]
+  nativeBuildInputs = with pkgs; [
+    pkg-config
+    clang
+    llvmPackages.clang
+  ];
 
-meta = with stdenv.lib; {
- description = "My C appllication"
- homepage = "https://github.com/github-owner/${pname}";
- license = licenses.mit;
- platforms = platforms.unix;
+  buildInputs = with pkgs; [
+    llvmPackages.libclang
+  ];
+
+  LIBCLANG_PATH = "${pkgs.llvmPackages.libclang.lib}/lib";
+
+  BINDGEN_EXTRA_CLANG_ARGS = ''
+    -I${pkgs.llvmPackages.libclang.lib}/lib/clang
+    -I${pkgs.llvmPackages.libclang.dev}/include
+  '';
+
+  CLANG_PATH = "${pkgs.llvmPackages.clang}/bin/clang";
+
+  doCheck = false;
 }
-
-};

@@ -147,12 +147,12 @@ withUWSM = true;
 
 #*** BEGIN NVIM INSTALLATION ***
 (import ./appbuild/nvim.nix { inherit pkgs;})
+(import ./appbuild/treesittercli.nix { inherit pkgs;})
 
 #** LSP **
      pkgs.tree-sitter
      pkgs.lua-language-server
      pkgs.stylua
-     pkgs.harper
 
 #** LATEX **
      pkgs.texliveFull
@@ -162,6 +162,7 @@ withUWSM = true;
      pkgs.ltex-ls 
      pkgs.texlab
      pkgs.harper
+     pkgs.jdk
 
      pkgs.ripgrep 
      pkgs.luarocks
