@@ -10,3 +10,8 @@ vim.keymap.set("n", "j", "gj", { noremap = true, silent = true })
 vim.keymap.set("n", "k", "gk", { noremap = true, silent = true })
 vim.keymap.set("n", "j", "gj", { noremap = true, silent = true })
 vim.keymap.set("n", "k", "gk", { noremap = true, silent = true })
+
+--LSP Keymaps
+
+vim.keymap.set("n", "<leader>d" ,vim.diagnostic.open_float) 
+vim.keymap.set("n", "<leader>ca" ,vim.lsp.buf.code_action) 

@@ -163,6 +163,7 @@ withUWSM = true;
      pkgs.texlab
      pkgs.harper
      pkgs.jdk
+     pkgs.zotero
 
      pkgs.ripgrep 
      pkgs.luarocks
@@ -204,6 +205,7 @@ withUWSM = true;
      pkgs.kdePackages.dolphin
      # Note that hypridle is how you can make your screen lock after a certian amount of time
      pkgs.hypridle
+     pkgs.brightnessctl
 
 #*** END HYPERLAND TOOLS ***
 
@@ -223,6 +225,9 @@ withUWSM = true;
 #*** END AUX TOOLS ***
 
   ];
+
+#The following is to set my multi-key to right alt for emojis
+services.xserver.xkb.options = "compose:ralt";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

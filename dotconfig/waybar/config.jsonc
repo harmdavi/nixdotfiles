@@ -2,11 +2,18 @@
   "position": "top",
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["network", "pulseaudio", "battery", "clock"],
+  "modules-right": ["network", "pulseaudio","backlight", "battery", "clock"],
   "clock": {
     "format": "<span foreground='#f5c2e7'>   </span>{:%a %d %H:%M}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
+
+  "backlight":{
+	"format":"🔆 {percent}%",
+	"on-scroll-up": "brightnessctl +5%",
+	"on-scroll-down": "brightnessctl -5%",
+  },
+
   "battery": {
     "states": {
       "warning": 30,
