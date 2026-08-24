@@ -153,6 +153,7 @@ withUWSM = true;
      pkgs.tree-sitter
      pkgs.lua-language-server
      pkgs.stylua
+     pkgs.ltex-ls-plus
 
 #** LATEX **
      pkgs.texliveFull
@@ -220,6 +221,8 @@ withUWSM = true;
 #*** BEGIN AUX TOOLS ***
 #     pkgs.kooha
 #     pkgs.grim 
+     pkgs.stow
+     pkgs.unzip
 
 #Note. The following is here in case I break my neovim and it breaks and need to use vim
      #pkgs.vim-full
@@ -258,6 +261,7 @@ services.xserver.xkb.options = "compose:ralt";
   system.stateVersion = "25.11"; # Did you read the comment?
 
   #***David Added Settings***
+
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 

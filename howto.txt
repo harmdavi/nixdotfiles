@@ -5,8 +5,6 @@
 
 https://www.youtube.com/watch?v=6WLaNIlDW0M&list=PL_WcXIXdDWWpuypAEKzZF2b5PijTluxRG
 
-
-
 ***UPDATING SYSTEM***
 
 When you want to update your programs first run:
@@ -26,7 +24,8 @@ To update your home-manager configuration run the following command:
 
  home-manager switch --flake .
 
-
+NOTE: 
+When you want to add a file to your exsisting configuration, you need to add it to the git repository otherwise it will not simlink it. You dont need to commit the changes, all you need to do is do git add .. 
 
 ***INSTALLING HOME MANAGER***
 

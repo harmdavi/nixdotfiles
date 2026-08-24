@@ -70,6 +70,7 @@
   #  /etc/profiles/per-user/david/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
+      GEMINI_API_KEY = "AQ.Ab8RN6LXc8POMlftEtFBP1UwHOEiPnOrsHsN46quGLvsIxudyA";
     # EDITOR = "emacs";
   };
 
@@ -162,6 +163,7 @@ programs.yazi = {
     shellAliases = {
       ls = "ls --color=auto";
       grep = "grep --color=auto";
+      envim = "NVIM_APPNAME=envim nvim";
     };
 
     initExtra = ''
@@ -207,6 +209,9 @@ programs.git = {
  init.defaultBranch = "main";
  };
 };
+
+
+
 
 #This does not like my display for some reason 
 

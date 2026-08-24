@@ -8,6 +8,6 @@ return {
       disable_float_background = true,
     })
 
-    vim.cmd("colorscheme rose-pine")
+--    vim.cmd("colorscheme rose-pine")
   end,
 }
