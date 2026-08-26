@@ -186,6 +186,7 @@ withUWSM = true;
      pkgs.localsend
      pkgs.inkscape
      pkgs.libreoffice
+     pkgs.mpv
 #used for GPG encryption
      pkgs.gnupg
 #     pkgs.kicad

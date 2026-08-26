@@ -136,6 +136,13 @@ programs.yazi = {
           block = true;
         }
       ];
+
+      firefox = [
+        {
+          run = ''firefox "$@"'';
+          orphan = true;
+        }
+      ];
     };
 
     open = {
@@ -143,6 +150,11 @@ programs.yazi = {
         {
           mime = "application/pdf";
           use = "pdf";
+        }
+
+        {
+          mime = "text/html";
+          use = "firefox";
         }
 
         {
