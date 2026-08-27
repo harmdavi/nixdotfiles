@@ -70,11 +70,9 @@
   #  /etc/profiles/per-user/david/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-      GEMINI_API_KEY = "AQ.Ab8RN6LXc8POMlftEtFBP1UwHOEiPnOrsHsN46quGLvsIxudyA";
     # EDITOR = "emacs";
   };
 
-#  programs.bash.enable = true
 
 #My Personal nvim configuration
 home.file.".config/nvim" = {
@@ -179,6 +177,12 @@ programs.yazi = {
     };
 
     initExtra = ''
+
+    if [ -f "$HOME/dotfiles/secrets.txt" ]; then
+      source "$HOME/dotfiles/secrets.txt"
+    fi
+
+
       export EDITOR=nvim
       export VISUAL=nvim
 

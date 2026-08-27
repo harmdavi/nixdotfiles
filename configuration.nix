@@ -187,9 +187,12 @@ withUWSM = true;
      pkgs.inkscape
      pkgs.libreoffice
      pkgs.mpv
+
 #used for GPG encryption
      pkgs.gnupg
-#     pkgs.kicad
+
+     #     pkgs.kicad
+
 #*** END PROGRAMS *** 
 
 #*** BEGIN HYPERLAND TOOLS ***
@@ -230,6 +233,7 @@ withUWSM = true;
 #*** END AUX TOOLS ***
 
   ];
+
 
 #The following is to set my multi-key to right alt for emojis
 services.xserver.xkb.options = "compose:ralt";
