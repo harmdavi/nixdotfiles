@@ -141,6 +141,13 @@ programs.yazi = {
           orphan = true;
         }
       ];
+
+      mpv = [
+        {
+          run = ''mpv "$@"'';
+          orphan = true;
+        }
+      ];
     };
 
     open = {
@@ -159,11 +166,15 @@ programs.yazi = {
           mime = "text/*";
           use = "edit";
         }
+
+        {
+          mime = "video/*";
+          use = "mpv";
+        }
       ];
     };
   };
 };
-
 
 
 #Bashrc Config
