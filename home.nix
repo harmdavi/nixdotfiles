@@ -95,6 +95,13 @@ source = ./dotconfig/ghostty;
 recursive = true;
 };
 
+
+#Quickshell Config
+#home.file.".config/quickshell" = {
+#source = ./dotconfig/quickshell;
+#recursive = true;
+#};
+
 #Hyprland Configuration
 home.file.".config/hypr" = {
 source = ./dotconfig/hypr;
@@ -112,6 +119,20 @@ recursive = true;
 #Zathura
 home.file.".config/zathura" = {
 source = ./dotconfig/zathura;
+recursive = false;
+};
+
+
+#Music Player Deamon
+home.file.".config/mpd" = {
+source = ./dotconfig/mpd;
+recursive = false;
+};
+
+
+# Music Player Application 
+home.file.".config/rmpc" = {
+source = ./dotconfig/rmpc;
 recursive = false;
 };
 

@@ -56,6 +56,8 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -175,6 +177,7 @@ services.blueman.enable = true;
 (import ./appbuild/nvim.nix { inherit pkgs;})
 (import ./appbuild/treesittercli.nix { inherit pkgs;})
 
+
 #** LSP **
      pkgs.tree-sitter
      pkgs.lua-language-server
@@ -200,6 +203,9 @@ services.blueman.enable = true;
 
 #*** END NVIM INSTALLATION ***
 
+#***MUSIC PLAYER ***
+     pkgs.mpd
+     pkgs.rmpc
 
 #*** BEGIN PROGRAMS *** 
      pkgs.python3
@@ -222,6 +228,8 @@ services.blueman.enable = true;
 #*** END PROGRAMS *** 
 
 #*** BEGIN HYPERLAND TOOLS ***
+     pkgs.ydotool
+     pkgs.quickshell
      pkgs.ghostty
      pkgs.mpv
      pkgs.yazi
@@ -259,6 +267,10 @@ services.blueman.enable = true;
 #*** END AUX TOOLS ***
 
   ];
+
+#enabling my music deamon
+
+  services.mpd.enable = true;
 
 
 #The following is to set my multi-key to right alt for emojis
