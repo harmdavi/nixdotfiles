@@ -124,18 +124,39 @@ recursive = false;
 
 
 #Music Player Deamon
-home.file.".config/mpd" = {
-source = ./dotconfig/mpd;
-recursive = false;
+#home.file.".config/mpd" = {
+#source = ./dotconfig/mpd;
+#recursive = false;
+#};
+
+services.mpd = {
+  enable = true;
+  
+  # Use 'musicDirectory' instead of 'home'
+  musicDirectory = "/home/david/Music"; 
+  
+  # Optional: custom data directory if you changed default MPD files location
+  # dataDir = "/home/yourusername/.config/mpd";
+
+  extraConfig = ''
+    audio_output {
+      type "pipewire"
+      name "PipeWire Sound Server"
+    }
+  '';
 };
+
 
 
 # Music Player Application 
-home.file.".config/rmpc" = {
-source = ./dotconfig/rmpc;
-recursive = false;
-};
+#home.file.".config/rmpc" = {
+#source = ./dotconfig/rmpc;
+#recursive = false;
+#};
 
+programs.rmpc = {
+  enable = true;
+};
 
 programs.yazi = {
   enable = true;

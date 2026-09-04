@@ -107,6 +107,8 @@ withUWSM = true;
   };
 
 
+
+
 hardware.bluetooth = {
   enable = true;
   powerOnBoot = true;
@@ -205,7 +207,9 @@ services.blueman.enable = true;
 
 #***MUSIC PLAYER ***
      pkgs.mpd
+     pkgs.mpc
      pkgs.rmpc
+     pkgs.kdePackages.k3b
 
 #*** BEGIN PROGRAMS *** 
      pkgs.python3
@@ -270,7 +274,31 @@ services.blueman.enable = true;
 
 #enabling my music deamon
 
-  services.mpd.enable = true;
+
+
+#services.mpd = {
+#  enable = true;
+#  user = "david";
+#  musicDirectory = "/home/david/Music";
+
+#  extraConfig = ''
+#music_directory "/home/david/Music"
+#playlist_directory "/home/david/Music/Playlists"
+
+#auto_update "yes"
+#restore_paused "yes"
+#max_output_buffer_size "16384"
+
+#    audio_output {
+#      type "pulse"
+#      name "pulse"
+#      mixer_type "software"
+#      server "127.0.0.1"
+#    }
+#  '';
+#};
+
+
 
 
 #The following is to set my multi-key to right alt for emojis
